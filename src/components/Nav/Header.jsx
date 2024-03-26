@@ -10,11 +10,14 @@ import {
   ListItemButton
 } from '@mui/material'
 import OnlineIndicator from './OnlineIndicator'
+import logo from '@/images/logo_eslogan.png'
+import Image from 'next/image'
+
 //import AuthModal from './AuthModal'
 //import { useAuth } from '@/AuthContext'
 
-export default function Header () {
- // const { isLoggedIn, account, logout } = useAuth()
+export default function Header() {
+  // const { isLoggedIn, account, logout } = useAuth()
 
   const [anchorEl, setAnchorEl] = useState(null)
   const [popover, setPopover] = useState(false)
@@ -45,11 +48,15 @@ export default function Header () {
 
   return (
     <AppBar className="header " position="fixed">
-      <h1>Template Web App</h1>
+      <Image className=" w-[50%] sm:w-[30%] md:w-[30%] lg:w-[30%]" src={logo}
+        alt={"Logo Nexus"}
+        width={300}
+        height={760}
+      />
 
       <IconButton onClick={openPopover}>
         <OnlineIndicator online={false}>
-          <Avatar  />
+          <Avatar />
         </OnlineIndicator>
       </IconButton>
 
@@ -66,23 +73,24 @@ export default function Header () {
             {/* Hello, {isLoggedIn ? account.username : 'Guest'} */}
             Hello,
           </ListSubheader>
-
+{/* 
           {true
             ? (
-            <Fragment>
-               <ListSubheader >
-                {/* Rol: {isLoggedIn ? account.role : ''} */}
-               </ListSubheader>
-              {/* <ListItemButton onClick={logout}>Logout</ListItemButton> */}
-            </Fragment>
+              <Fragment>
+                <ListSubheader >
+                 Rol: {isLoggedIn ? account.role : ''} 
+                </ListSubheader>
+                 <ListItemButton onClick={logout}>Logout</ListItemButton> 
+              </Fragment>
 
-              )
+            )
             : (
-            <Fragment>
-              <ListItemButton onClick={clickLogin}>Login</ListItemButton>
-              <ListItemButton onClick={clickRegister}>Reigster</ListItemButton>
-            </Fragment>
-              )}
+              <Fragment>
+                <ListItemButton onClick={clickLogin}>Login</ListItemButton>
+                <ListItemButton onClick={clickRegister}>Reigster</ListItemButton>
+              </Fragment>
+            )}
+             */}
         </List>
       </Popover>
 
@@ -92,6 +100,6 @@ export default function Header () {
         isRegisterMode={register}
         toggleRegister={() => setRegister((prev) => !prev)}
       />*/}
-    </AppBar> 
+    </AppBar>
   )
 }

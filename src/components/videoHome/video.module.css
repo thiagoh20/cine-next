@@ -1,10 +1,22 @@
 .containerAllvideo {
-    min-height: 100vh;
     position: relative;
     overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 30%;
+    background-position-x: 30%;
+    
 }
 
-
+.imgBody {
+    display: flex;
+    /* background-image: url("https://firebasestorage.googleapis.com/v0/b/cinea-ninjasdev.appspot.com/o/Im%C3%A1genes%20inicio%2Fsaw-x-4k-wallpaper-extracted-directly-from-v0-mnpnfu10iqfb1.png?alt=media&token=2e4d79e9-8996-4966-b00f-a43d6b1c8552&_gl=1*l4v10q*_ga*MTQ1MDA0MTE5OC4xNjk3NzU4OTU2*_ga_CW55HF8NVT*MTY5ODk3NjIyNy44LjEuMTY5ODk3NjY0Ny40MC4wLjA."); */
+    width: 100vw;
+    height: 100vh;
+    margin-top: -30vh;
+    background-position-y: 30%;
+    background-position-x: 30%;
+}
 
 .containerStyleVideo {
     width: 100%;
@@ -12,6 +24,7 @@
     background-size: 'cover';
     transform: scale(1.8);
     overflow: hidden;
+   
 }
 
 .overlayTextStyle {
@@ -23,7 +36,20 @@
     color: #ffffff;
     font-Size: 24px;
     font-Weight: bold;
-    text-Align: center;
     background-Color: rgba(0, 0, 0, 0.5);
     
 }
+.texto{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 70%;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+@media (max-width: 800px) {
+    .texto{
+        top: 25vh;
+    }
+  }
