@@ -14,7 +14,7 @@ const VideoPlayer = () => {
         width: '100%',
         height: '100%',
         playerVars: {
-            autoplay: 1, // Reproducir automáticamente
+            autoplay: 0, // Reproducir automáticamente
             controls: 0,
             rel: 0,
             showinfo: 0,
@@ -29,12 +29,12 @@ const VideoPlayer = () => {
         },
     };
 
-    const [tamañoVentana, setTamañoVentana] = useState(0);
+    const [tamanoVentana, settamanoVentana] = useState(0);
     const [mostrarElemento1, setMostrarElemento1] = useState(true);
 
     useEffect(() => {
         const handleResize = () => {
-            setTamañoVentana(window.innerWidth);
+            settamanoVentana(window.innerWidth);
         };
         window.addEventListener('resize', handleResize);
         return () => {
@@ -43,13 +43,13 @@ const VideoPlayer = () => {
     }, []);
 
     useEffect(() => {
-        setTamañoVentana(window.innerWidth);
-        if (tamañoVentana <= 800) {
+        settamanoVentana(window.innerWidth);
+        if (tamanoVentana <= 800) {
             setMostrarElemento1(true);
         } else {
             setMostrarElemento1(false);
         }
-    }, [tamañoVentana]);
+    }, [tamanoVentana]);
 
     const backgroundStyle = {
         backgroundImage: `url(https://indy-systems.imgix.net/zwul8nkl2274niufykt52zd3xmy4?fit=crop&w=400&h=600&fm=jpeg&auto=format)`,
@@ -61,7 +61,8 @@ const VideoPlayer = () => {
             {mostrarElemento1 ? (
                 <div className={styles.imgBody} />
             ) : (
-                <YouTube className={styles.containerStyleVideo} videoId="n9xhJrPXop4" opts={opts} onEnd={handleVideoEnd} />
+                 <YouTube className={styles.containerStyleVideo} videoId="n9xhJrPXop4" opts={opts} onEnd={handleVideoEnd} />
+                
             )}
             <Link href="/">
                 <div className={styles.overlayTextStyle}>

@@ -28,16 +28,16 @@ body {
 }
 
 .header {
-  width: 100% !important;
+  width: 100vw !important;
   height: 100px;
-  padding: 0 0.5rem !important;
+  padding: 0 2rem !important;
   background-color: var(--Black-trasparente) !important;
   color: var(--White) !important;
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
   justify-content: space-between !important;
-  z-index: 10;
+
 }
 
 @media (max-width: 600px) {

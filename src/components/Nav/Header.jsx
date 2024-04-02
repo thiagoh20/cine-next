@@ -48,10 +48,10 @@ export default function Header() {
 
   return (
     <AppBar className="header " position="fixed">
-      <Image className=" w-[50%] sm:w-[30%] md:w-[30%] lg:w-[30%]" src={logo}
+      <Image className=" w-[50%] sm:w-[30%] md:w-[30%] lg:w-[20%]" src={logo}
         alt={"Logo Nexus"}
         width={300}
-        height={760}
+        height={760} unoptimized
       />
 
       <IconButton onClick={openPopover}>
@@ -67,7 +67,7 @@ export default function Header() {
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <List style={{ minWidth: '100px' }}>
+        <List style={{ minWidth: '90px' }}>
 
           <ListSubheader >
             {/* Hello, {isLoggedIn ? account.username : 'Guest'} */}
