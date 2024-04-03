@@ -69,7 +69,6 @@ const VideoPlayer = () => {
                     <section className={styles.texto}>
                         <h1 className='text-7xl md:text-4xl'>DUNE</h1>
                         <h4 className='text-3xl md:text-8xl '> PARTE DOS </h4>
-                        
                     </section>
                 </div>
             </Link>

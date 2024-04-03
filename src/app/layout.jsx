@@ -1,5 +1,6 @@
 import { mitr } from "@/styles/font"
 import "@/styles/globals.css";
+import Header from "@/components/Nav/Header";
 
 export const metadata = {
   title: {
@@ -13,9 +14,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
-      <body className={mitr.className}>{children}</body>
+      <body className={mitr.className}>
+        <Header/>
+        {children}</body>
     </html>
   );
 }

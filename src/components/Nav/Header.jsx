@@ -51,7 +51,9 @@ export default function Header() {
       <Image className=" w-[50%] sm:w-[30%] md:w-[30%] lg:w-[20%]" src={logo}
         alt={"Logo Nexus"}
         width={300}
-        height={760} unoptimized
+        height={760} 
+        unoptimized
+        priority={true}
       />
 
       <IconButton onClick={openPopover}>

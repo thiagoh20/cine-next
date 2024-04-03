@@ -1,8 +1,8 @@
 "use client"
 import { React, Suspense } from 'react'
 import CardMovie from './CardMovies'
+import CardsSkeleton from '@/components/skeletons/skeletons';
 
-import CardsSkeleton from '@/components/skeletons';
 export default function Movies() {
 
 
@@ -19,12 +19,10 @@ export default function Movies() {
         <CardsSkeleton />
         <CardsSkeleton />
         <CardMovie />
-
-        {/*
-      <CardMovie />
-      <CardMovie />
-      <CardMovie />
-      <CardMovie /> */}
+        <CardMovie />
+        <CardMovie />
+        <CardMovie />
+        <CardMovie />
 
 
 
