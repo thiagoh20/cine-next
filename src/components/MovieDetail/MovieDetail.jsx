@@ -2,14 +2,16 @@
 import { React, Suspense } from 'react'
 import Image from 'next/image'
 import dune from '@/images/duneee.png'
-
+import { useMovies } from '@/hooks/useMovies';
 
 export default function MovieDetail() {
 
- 
+  const { movies } = useMovies();
+  console.log(movies)
+
   const backdropPath = 'https://i.blogs.es/dfa923/dune-xataka/1366_2000.jpeg';
   const backgroundStyle = {
-      backgroundImage: `url(${backdropPath})`
+    backgroundImage: `url(${backdropPath})`
   }
   return (
     <article className="h-[100vh]"  >
@@ -28,7 +30,7 @@ export default function MovieDetail() {
           </button>
 
           <ul className='movieDetailCard-body_left_details  flex rounded-xl tracking-wider font-quicksand text-xs sm:text-sm md:text-base flex-col gap-5 px-[6%] bg-black/50 text-white py-10 sm:bg-white sm:text-black'>
-            <li  className='flex flex-col items-center '>
+            <li className='flex flex-col items-center '>
               <span className='font-[500] border border-white p-1 px-3 rounded-md sm:border-black'> 4/1/2024</span>
             </li>
             <li className='flex flex-col items-center'>
@@ -53,25 +55,25 @@ export default function MovieDetail() {
             </ul>
           </div>
 
-       <div className='flex flex-col  text-zinc-600'>
-         <p className='tracking-wider flex flex-col mt-5 ml-2'>
-            <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold '>DESCRIPCIÓN GENERAL</span>
-            <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, laborum laboriosam similique magnam ipsum consequatur, dolores odio officiis voluptates maiores repellat fugit provident reprehenderit necessitatibus dolorem temporibus quos cupiditate ea.</span>
-          </p>
-          <p className='tracking-wider flex flex-col ml-2'>
-            <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold'>DIRECTOR</span>
-            <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify'>Lorem ipsum, </span>
-          </p>
-          <p className='tracking-wider flex flex-col ml-2'>
-            <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold'>DPRODUCTOR</span>
-            <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify'>Lorem ipsum, dolor sit </span>
-          </p>
-          <p className='tracking-wider flex flex-col ml-2'>
-            <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold'>ELENCO</span>
-            <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify'>Lorem ipsum, dolor sit amet consectetur</span>
-          </p>
-       </div>
-         
+          <div className='flex flex-col  text-zinc-600'>
+            <p className='tracking-wider flex flex-col mt-5 ml-2'>
+              <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold '>DESCRIPCIÓN GENERAL</span>
+              <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, laborum laboriosam similique magnam ipsum consequatur, dolores odio officiis voluptates maiores repellat fugit provident reprehenderit necessitatibus dolorem temporibus quos cupiditate ea.</span>
+            </p>
+            <p className='tracking-wider flex flex-col ml-2'>
+              <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold'>DIRECTOR</span>
+              <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify'>Lorem ipsum, </span>
+            </p>
+            <p className='tracking-wider flex flex-col ml-2'>
+              <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold'>DPRODUCTOR</span>
+              <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify'>Lorem ipsum, dolor sit </span>
+            </p>
+            <p className='tracking-wider flex flex-col ml-2'>
+              <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold'>ELENCO</span>
+              <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify'>Lorem ipsum, dolor sit amet consectetur</span>
+            </p>
+          </div>
+
 
         </div>
       </div>

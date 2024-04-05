@@ -3,8 +3,12 @@ import { React, useEffect, useState } from 'react';
 import YouTube from 'react-youtube';
 import styles from './video.module.css'
 import Link from 'next/link';
+import { useMovies } from '@/hooks/useMovies';
 
 const VideoPlayer = () => {
+    const { movies } = useMovies();
+    console.log(movies)
+
     // Configuración del reproductor de YouTube
     const handleVideoEnd = (event) => {
         event.target.playVideo(); // Reiniciar el video cuando llegue al final
@@ -61,8 +65,8 @@ const VideoPlayer = () => {
             {mostrarElemento1 ? (
                 <div className={styles.imgBody} />
             ) : (
-                 <YouTube className={styles.containerStyleVideo} videoId="n9xhJrPXop4" opts={opts} onEnd={handleVideoEnd} />
-                
+                <YouTube className={styles.containerStyleVideo} videoId="n9xhJrPXop4" opts={opts} onEnd={handleVideoEnd} />
+
             )}
             <Link href="/">
                 <div className={styles.overlayTextStyle}>
