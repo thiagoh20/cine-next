@@ -12,13 +12,13 @@ export default function MovieDetail() {
       backgroundImage: `url(${backdropPath})`
   }
   return (
-    <article className="relative  h-[100vh]"  >
+    <article className="h-[100vh]"  >
       <div className='absolute  w-[100%] top-0 left-0 max-h-[470px] h-[40%] '>
         <div className='h-[100%] w-[100%] bg-cover bg-no-repeat bg-center inset-0 transform -skew-y-2 origin-top-left' style={backgroundStyle} ></div>
       </div>
-      <div className='movieDetailCard-body flex flex-col absolute sm:flex-row md:flex-row lg:flex-row sm:mt-20%] md:mt-[20%] lg:mt-[14%] mt-[30%] gap-10 mx-6'>
-        <div className='movieDetailCard-body_left flex relative gap-10 items-center flex-row md:justify-around sm:flex-col '>
-          <button className='movieDetailCard-body_left_poster relative sm:w-[60%] md:w-[70%] lg:w-[80%] w-[80%]'>
+      <div className='movieDetailCard-body flex flex-col justify-center absolute sm:flex-row md:flex-row lg:flex-row sm:mt-[20%] md:mt-[17%] lg:mt-[13%] mt-[28%] gap-1 mx-7'>
+        <div className='movieDetailCard-body_left flex justify-center relative gap-5 items-center flex-row md:justify-around sm:flex-col '>
+          <button className='movieDetailCard-body_left_poster relative w-[40%] sm:w-[70%] md:w-[80%] lg:w-[90%] '>
             <Image className="rounded-md object-cover w-[100%]" src={dune}
               alt={"dune"}
               width={200}
@@ -27,23 +27,27 @@ export default function MovieDetail() {
 
           </button>
 
-          <ul className='movieDetailCard-body_left_details flex justify-center rounded-xl tracking-wider font-quicksand text-xs sm:text-sm md:text-base'>
-            <li>
-              <span className='underline  font-semibold'>Fecha de estreno</span>
+          <ul className='movieDetailCard-body_left_details  flex items-center rounded-xl tracking-wider font-quicksand text-xs sm:text-sm md:text-base flex-col gap-5 px-[9%] bg-black/50 text-white py-8 sm:bg-white sm:text-black '>
+            <li  className='flex flex-col items-center '>
+              <span className='underline  font-semibold '>Fecha de estreno</span>
               <span className='font-[500]'> 4/1/2024</span>
             </li>
-            <li>
+            <li className='flex flex-col items-center'>
               <span className='underline font-semibold'>Duración</span>
               <span className='font-[500]'>95 Minutos</span>
+            </li>
+            <li className='flex flex-col items-center'>
+              <span className='underline font-semibold'>Categoria</span>
+              <span className='font-[500]'>Mayor de 12</span>
             </li>
           </ul>
         </div>
 
-        <div className='movieDetailCard-body_right   w-[60%] sm:items-center'>
+        <div className='movieDetailCard-body_right justify-center sm:mx-10  sm:w-[60%] sm:items-center'>
           <div className="movieDetailCard-body_right_top flex flex-col min-h-48 gap-8 justify-end">
-            <div className='movieDetailCard-body_right_top_titles flex flex-col gap-2 rounded-lg bg-black/50 py-3 px-2 '>
-              <h1 className='text-lg xs:text-base sm:text-xl md:text-2xl lg:text-6xl font-[400] text-white'>DUNE</h1>
-              <h2 className='text-sm xs:text-sm sm:text-base md:text-lg lg:text-xl font-[300] italic text-white'>PARTE DOS</h2>
+            <div className='movieDetailCard-body_right_top_titles flex flex-col gap-2 rounded-lg bg-black/50 py-3 px-2 text-white'>
+              <h1 className='text-lg xs:text-base sm:text-xl md:text-2xl lg:text-6xl font-[400] '>DUNE</h1>
+              <h2 className='text-sm xs:text-sm sm:text-base md:text-lg lg:text-xl font-[300] italic '>PARTE DOS</h2>
             </div>
 
             <ul className='movieDetailCard-body_right_top_genres flex flex-wrap gap-3 tracking-wider'>

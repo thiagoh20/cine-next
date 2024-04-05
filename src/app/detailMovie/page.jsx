@@ -5,9 +5,6 @@ export default function detailMovie() {
   return (
     <>
      <MovieDetail/>
-     <div>
-      hola
-     </div>
     </>
   );
 }
