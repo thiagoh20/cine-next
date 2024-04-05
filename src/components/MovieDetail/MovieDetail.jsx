@@ -13,12 +13,12 @@ export default function MovieDetail() {
   }
   return (
     <article className="h-[100vh]"  >
-      <div className='absolute  w-[100%] top-0 left-0 max-h-[470px] h-[40%] '>
-        <div className='h-[100%] w-[100%] bg-cover bg-no-repeat bg-center inset-0 transform -skew-y-2 origin-top-left' style={backgroundStyle} ></div>
+      <div className='absolute  w-[100%] top-0 left-0 max-h-[470px] h-[35%] '>
+        <div className='h-[100%] w-[100%] bg-cover bg-no-repeat bg-center inset-0 transform -skew-y-3 origin-top-left' style={backgroundStyle} ></div>
       </div>
       <div className='movieDetailCard-body flex flex-col justify-center absolute sm:flex-row md:flex-row lg:flex-row sm:mt-[20%] md:mt-[17%] lg:mt-[13%] mt-[28%] gap-1 mx-7'>
-        <div className='movieDetailCard-body_left flex justify-center relative gap-5 items-center flex-row md:justify-around sm:flex-col '>
-          <button className='movieDetailCard-body_left_poster relative w-[40%] sm:w-[70%] md:w-[80%] lg:w-[90%] '>
+        <div className='movieDetailCard-body_left flex justify-center relative gap-3 items-center flex-row md:justify-around sm:flex-col '>
+          <button className='movieDetailCard-body_left_poster relative w-[40%] sm:w-[70%] md:w-[90%] lg:w-[100%] '>
             <Image className="rounded-md object-cover w-[100%]" src={dune}
               alt={"dune"}
               width={200}
@@ -27,18 +27,15 @@ export default function MovieDetail() {
 
           </button>
 
-          <ul className='movieDetailCard-body_left_details  flex items-center rounded-xl tracking-wider font-quicksand text-xs sm:text-sm md:text-base flex-col gap-5 px-[9%] bg-black/50 text-white py-8 sm:bg-white sm:text-black '>
+          <ul className='movieDetailCard-body_left_details  flex rounded-xl tracking-wider font-quicksand text-xs sm:text-sm md:text-base flex-col gap-5 px-[6%] bg-black/50 text-white py-10 sm:bg-white sm:text-black'>
             <li  className='flex flex-col items-center '>
-              <span className='underline  font-semibold '>Fecha de estreno</span>
-              <span className='font-[500]'> 4/1/2024</span>
+              <span className='font-[500] border border-white p-1 px-3 rounded-md sm:border-black'> 4/1/2024</span>
             </li>
             <li className='flex flex-col items-center'>
-              <span className='underline font-semibold'>Duración</span>
-              <span className='font-[500]'>95 Minutos</span>
+              <span className='font-[500] border border-white p-1 px-3 rounded-md sm:border-black'>95 Minutos</span>
             </li>
             <li className='flex flex-col items-center'>
-              <span className='underline font-semibold'>Categoria</span>
-              <span className='font-[500]'>Mayor de 12</span>
+              <span className='font-[500] border border-white p-1 px-3 rounded-md sm:border-black'>Mayor de 12</span>
             </li>
           </ul>
         </div>
@@ -56,11 +53,25 @@ export default function MovieDetail() {
             </ul>
           </div>
 
-
-          <p className='tracking-wider flex flex-col gap-2 min-h-[200px] mt-5 ml-2'>
-            <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl '>Sinopsis</span>
-            <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, laborum laboriosam similique magnam ipsum consequatur, dolores odio officiis voluptates maiores repellat fugit provident reprehenderit necessitatibus dolorem temporibus quos cupiditate ea.</span>
+       <div className='flex flex-col  text-zinc-600'>
+         <p className='tracking-wider flex flex-col mt-5 ml-2'>
+            <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold '>DESCRIPCIÓN GENERAL</span>
+            <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, laborum laboriosam similique magnam ipsum consequatur, dolores odio officiis voluptates maiores repellat fugit provident reprehenderit necessitatibus dolorem temporibus quos cupiditate ea.</span>
           </p>
+          <p className='tracking-wider flex flex-col ml-2'>
+            <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold'>DIRECTOR</span>
+            <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify'>Lorem ipsum, </span>
+          </p>
+          <p className='tracking-wider flex flex-col ml-2'>
+            <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold'>DPRODUCTOR</span>
+            <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify'>Lorem ipsum, dolor sit </span>
+          </p>
+          <p className='tracking-wider flex flex-col ml-2'>
+            <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold'>ELENCO</span>
+            <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify'>Lorem ipsum, dolor sit amet consectetur</span>
+          </p>
+       </div>
+         
 
         </div>
       </div>

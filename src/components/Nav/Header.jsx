@@ -12,7 +12,7 @@ import {
 import OnlineIndicator from './OnlineIndicator'
 import logo from '@/images/logo_eslogan.png'
 import Image from 'next/image'
-
+import Link from 'next/link'
 //import AuthModal from './AuthModal'
 //import { useAuth } from '@/AuthContext'
 
@@ -48,13 +48,16 @@ export default function Header() {
 
   return (
     <AppBar className="header " position="fixed">
-      <Image className=" w-[50%] sm:w-[30%] md:w-[30%] lg:w-[20%]" src={logo}
-        alt={"Logo Nexus"}
-        width={300}
-        height={760} 
-        unoptimized
-        priority={true}
-      />
+      <Link href='/'>
+        <Image className=" w-[50%] sm:w-[30%] md:w-[30%] lg:w-[20%]" src={logo}
+          alt={"Logo Nexus"}
+          width={300}
+          height={760}
+          unoptimized
+          priority={true}
+        />
+      </Link>
+
 
       <IconButton onClick={openPopover}>
         <OnlineIndicator online={false}>
@@ -75,7 +78,7 @@ export default function Header() {
             {/* Hello, {isLoggedIn ? account.username : 'Guest'} */}
             Hello,
           </ListSubheader>
-{/* 
+          {/* 
           {true
             ? (
               <Fragment>
