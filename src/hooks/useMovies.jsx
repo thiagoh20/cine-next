@@ -13,7 +13,6 @@ export function useMovies() {
             .get(`/movies`)
             .then((res) => {
                 setMovie(res.data);
-                resolve(true)
             })
             .catch((error) => {
                 console.error(error);
