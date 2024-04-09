@@ -6,8 +6,7 @@ import Link from 'next/link';
 import { useMovies } from '@/hooks/useMovies';
 
 const VideoPlayer = () => {
-    const { movies } = useMovies();
-    console.log(movies)
+  
 
     // Configuración del reproductor de YouTube
     const handleVideoEnd = (event) => {
@@ -18,7 +17,7 @@ const VideoPlayer = () => {
         width: '100%',
         height: '100%',
         playerVars: {
-            autoplay: 0, // Reproducir automáticamente
+            autoplay: 1, // Reproducir automáticamente
             controls: 0,
             rel: 0,
             showinfo: 0,

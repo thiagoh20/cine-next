@@ -1,13 +1,16 @@
-"use client"
-import Header from "@/components/Nav/Header";
+import { React, Suspense } from 'react'
 import VideoPlayer from "@/components/videoHome/VideoPlayer";
-import Movies from "@/components/Movies/Movies";
+import CardsSkeletons from '@/components/skeletons/skeletons';
+import { Movies } from '@/components/Movies/Movies';
 
 export default function Home() {
   return (
     <>
       <VideoPlayer />
-      <Movies/>
+      <Suspense fallback={<CardsSkeletons />}>
+        <Movies />
+      </Suspense>
+
     </>
 
   );

@@ -1,17 +1,15 @@
 "use client"
 import { React, Suspense } from 'react'
 import Image from 'next/image'
-import dune from '@/images/duneee.png'
-import { useMovies } from '@/hooks/useMovies';
+import {  useMoviesId } from '@/hooks/useMovies';
 
-export default function MovieDetail() {
+export default function MovieDetail(idMovie) {
+  const movie = useMoviesId(idMovie.id);
+  // console.log(movie)
 
-  const { movies } = useMovies();
-  console.log(movies)
-
-  const backdropPath = 'https://i.blogs.es/dfa923/dune-xataka/1366_2000.jpeg';
+  const backdropPath = "https://image.tmdb.org/t/p/w500" + movie.imageBackground;
   const backgroundStyle = {
-    backgroundImage: `url(${backdropPath})`
+    backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.imageBackground})`
   }
   return (
     <article className="h-[100vh]"  >
@@ -21,7 +19,7 @@ export default function MovieDetail() {
       <div className='movieDetailCard-body flex flex-col justify-center absolute sm:flex-row md:flex-row lg:flex-row sm:mt-[20%] md:mt-[17%] lg:mt-[13%] mt-[28%] gap-1 mx-7'>
         <div className='movieDetailCard-body_left flex justify-center relative gap-3 items-center flex-row md:justify-around sm:flex-col '>
           <button className='movieDetailCard-body_left_poster relative w-[40%] sm:w-[70%] md:w-[90%] lg:w-[100%] '>
-            <Image className="rounded-md object-cover w-[100%]" src={dune}
+            <Image className="rounded-md object-cover w-[100%]" src={"https://image.tmdb.org/t/p/w500" + movie.imageCartelera}
               alt={"dune"}
               width={200}
               height={100}
@@ -34,10 +32,10 @@ export default function MovieDetail() {
               <span className='font-[500] border border-white p-1 px-3 rounded-md sm:border-black'> 4/1/2024</span>
             </li>
             <li className='flex flex-col items-center'>
-              <span className='font-[500] border border-white p-1 px-3 rounded-md sm:border-black'>95 Minutos</span>
+              <span className='font-[500] border border-white p-1 px-3 rounded-md sm:border-black'>{movie.Duracion}</span>
             </li>
             <li className='flex flex-col items-center'>
-              <span className='font-[500] border border-white p-1 px-3 rounded-md sm:border-black'>Mayor de 12</span>
+              <span className='font-[500] border border-white p-1 px-3 rounded-md sm:border-black'>{movie.Clasificacion}</span>
             </li>
           </ul>
         </div>
@@ -45,20 +43,20 @@ export default function MovieDetail() {
         <div className='movieDetailCard-body_right justify-center sm:mx-10  sm:w-[60%] sm:items-center'>
           <div className="movieDetailCard-body_right_top flex flex-col min-h-48 gap-8 justify-end">
             <div className='movieDetailCard-body_right_top_titles flex flex-col gap-2 rounded-lg bg-black/50 py-3 px-2 text-white'>
-              <h1 className='text-lg xs:text-base sm:text-xl md:text-2xl lg:text-6xl font-[400] '>DUNE</h1>
-              <h2 className='text-sm xs:text-sm sm:text-base md:text-lg lg:text-xl font-[300] italic '>PARTE DOS</h2>
+              <h1 className='text-lg xs:text-base sm:text-xl md:text-2xl lg:text-6xl font-[400] '>{movie.Titulo}</h1>
+              <h2 className='text-sm xs:text-sm sm:text-base md:text-lg lg:text-xl font-[300] italic '>{movie.SubTitulo}</h2>
             </div>
 
             <ul className='movieDetailCard-body_right_top_genres flex flex-wrap gap-3 tracking-wider'>
-              <li className="badge badge-lg badge-primary text-[0.7rem] sm:text-xs md:text-sm lg:text-lg bg-red-700 text-white px-3 rounded-md content-center ">Accion</li>
-              <li className="badge badge-lg badge-primary text-[0.7rem] sm:text-xs md:text-sm lg:text-lg bg-red-700 text-white px-3 rounded-md content-center">Aventura</li>
+              <li className="badge badge-lg badge-primary text-[0.7rem] sm:text-xs md:text-sm lg:text-lg bg-red-700 text-white px-3 rounded-md content-center ">{movie.Genero}</li>
+              {/* <li className="badge badge-lg badge-primary text-[0.7rem] sm:text-xs md:text-sm lg:text-lg bg-red-700 text-white px-3 rounded-md content-center">Aventura</li> */}
             </ul>
           </div>
 
           <div className='flex flex-col  text-zinc-600'>
             <p className='tracking-wider flex flex-col mt-5 ml-2'>
               <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold '>DESCRIPCIÓN GENERAL</span>
-              <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, laborum laboriosam similique magnam ipsum consequatur, dolores odio officiis voluptates maiores repellat fugit provident reprehenderit necessitatibus dolorem temporibus quos cupiditate ea.</span>
+              <span className='text-base xs:text-xs sm:text-sm md:text-base lg:text-lg text-justify '>{movie.Sinopsis}</span>
             </p>
             <p className='tracking-wider flex flex-col ml-2'>
               <span className='text-2xl xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold'>DIRECTOR</span>

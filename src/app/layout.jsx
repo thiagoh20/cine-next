@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+      {/* <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" /> */}
       <body className={mitr.className}>
         <Header/>
         {children}</body>
