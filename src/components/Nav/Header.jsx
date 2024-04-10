@@ -47,7 +47,7 @@ export default function Header() {
   }
 
   return (
-    <AppBar className="header " position="fixed">
+    <AppBar className="header" position="fixed">
       <Link href='/'>
         <Image className=" w-[50%] sm:w-[30%] md:w-[30%] lg:w-[20%]" src={logo}
           alt={"Logo Nexus"}

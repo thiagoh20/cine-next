@@ -3,11 +3,11 @@ import { React, useEffect, useState } from 'react';
 import YouTube from 'react-youtube';
 import styles from './video.module.css'
 import Link from 'next/link';
-import { useMovies } from '@/hooks/useMovies';
+import { useUnaMovie } from '@/hooks/useMovies';
 
 const VideoPlayer = () => {
-  
-
+    const movie = useUnaMovie();
+   
     // Configuración del reproductor de YouTube
     const handleVideoEnd = (event) => {
         event.target.playVideo(); // Reiniciar el video cuando llegue al final
@@ -55,7 +55,7 @@ const VideoPlayer = () => {
     }, [tamanoVentana]);
 
     const backgroundStyle = {
-        backgroundImage: `url(https://indy-systems.imgix.net/zwul8nkl2274niufykt52zd3xmy4?fit=crop&w=400&h=600&fm=jpeg&auto=format)`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/original${movie[0]?.imageBackground})`
 
     }
 
@@ -64,14 +64,14 @@ const VideoPlayer = () => {
             {mostrarElemento1 ? (
                 <div className={styles.imgBody} />
             ) : (
-                <YouTube className={styles.containerStyleVideo} videoId="n9xhJrPXop4" opts={opts} onEnd={handleVideoEnd} />
+                <YouTube className={styles.containerStyleVideo} videoId={movie[0]?.idvideo} opts={opts} onEnd={handleVideoEnd} />
 
             )}
             <Link href="/">
                 <div className={styles.overlayTextStyle}>
                     <section className={styles.texto}>
-                        <h1 className='text-7xl md:text-4xl'>DUNE</h1>
-                        <h4 className='text-3xl md:text-8xl '> PARTE DOS </h4>
+                        <h1 className='text-5xl md:text-4xl mb-5'>{movie[0]?.titulo}</h1>
+                        <h4 className='text-3xl md:text-8xl '> {movie[0]?.subTitulo}</h4>
                     </section>
                 </div>
             </Link>

@@ -25,6 +25,8 @@
 
 body {
   color: rgb(var(--White));
+  padding-right: 0px !important;
+   overflow: auto  !important;
 }
 
 .header {
@@ -37,7 +39,7 @@ body {
   flex-direction: row !important;
   align-items: center !important;
   justify-content: space-between !important;
-
+  
 }
 
 @media (max-width: 600px) {

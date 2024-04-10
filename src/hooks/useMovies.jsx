@@ -49,3 +49,27 @@ export function useMoviesId(id) {
     }
     return movie
 }
+export function useUnaMovie() {
+    const [movie, setMovie] = useState({})
+
+    useEffect(() => {
+        getUnaMovie();
+    }, [])
+
+    const getUnaMovie = () => {
+        return new Promise((resolve, reject) => {
+            axios
+                .get(`/movies/unamovie`)
+                .then((res) => {
+                    setMovie(res.data);
+                    resolve(true)
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert(error?.response?.data?.message || error.message);
+                    // reject(error?.response?.data?.message || error.message);
+                });
+        });
+    }
+    return movie
+}
