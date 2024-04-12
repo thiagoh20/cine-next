@@ -26,7 +26,7 @@
 body {
   color: rgb(var(--White));
   padding-right: 0px !important;
-   overflow: auto  !important;
+  overflow: auto  !important;
 }
 
 .header {
