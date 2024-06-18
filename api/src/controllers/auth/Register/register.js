@@ -1,41 +1,48 @@
-const joi = require("joi");
+const z = require("zod");
 const bcrypt = require("bcrypt");
 const Account = require("../../../models/Account");
 const { signToken } = require("../../../middlewares/jsonwebtoken");
 
+
+const FormSchema = z.object({
+  email: z.string().email({
+    message: 'Por favor, introduce una dirección de correo electrónico válida.',
+  }),
+  password: z.string().refine((value) => {
+    const uppercaseRegex = /[A-Z]/;
+    const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    return (
+      uppercaseRegex.test(value) &&
+      specialCharRegex.test(value) &&
+      value.length >= 8
+    );
+  }, {
+    message: 'La contraseña debe contener al menos 1 letra mayúscula, 1 carácter especial y tener al menos 8 caracteres.',
+  }),
+  name: z.string(),
+  role: z.string(),
+})
+
 async function register(request, response, next) {
+  const { email, password, name, role } = request.body;
   try {
     // Validate request data
-    await joi
-      .object({
-        tipodocumento: joi.string().required(),
-        document: joi.string().required(),
-        username: joi.string().required(),
-        lastname: joi.string().required(),
-        email: joi.string().required(),
-        password: joi.string().required(),
-        passwordconfirm: joi.string().optional(),
-      })
-      .validateAsync(request.body);
+    FormSchema.parse({ email, password, name, role });
+
   } catch (error) {
     return response.status(400).json({
-      error: "ValidationError",
+      error: "Error de validación Resgistro",
       message: error.message,
     });
   }
 
   try {
-    const { username, password, tipodocumento,document,lastname,email} = request.body;
-
-    // Verify account username as unique
+    const { name, password, email } = request.body;
     const existingAccount = await Account.findOne({ email });
     if (existingAccount) {
-      const exists = true;
       return response.status(400).json({
         error: email,
-        message: 'El correo ya esta registrado',
-        exists
-        
+        message: 'Ya existe una cuenta con ese correo',
       });
     }
 
@@ -44,7 +51,7 @@ async function register(request, response, next) {
     const hash = await bcrypt.hash(password, salt);
 
     // Create account
-    const newAccount = new Account({ username, password: hash, tipodocumento,document ,lastname,email});
+    const newAccount = new Account({ name, password: hash, email });
     await newAccount.save();
 
     // Remove password from response data
@@ -55,7 +62,7 @@ async function register(request, response, next) {
     const token = signToken({ uid: newAccount._id, role: newAccount.role });
 
     response.status(201).json({
-      message: "Succesfully registered",
+      message: "Registrado con éxito",
       data: newAccount,
       token,
     });
@@ -68,48 +75,5 @@ async function register(request, response, next) {
   }
 }
 
-async function basicData(request, response, next) {
-  try {
-    const { uid } = request.auth;
-    const foundAccount = await Account.findOne({ _id: uid }).select(
-      "-password"
-    );
-    await joi
-      .object({
-        name: joi.string().required(),
-        idPerson: joi.string().required(),
-        email: joi.string().email().required(),
-        personAddress: joi.string().required(),
-      })
-      .validateAsync(request.body);
-  } catch (error) {
-    return response.status(400).json({
-      error: "ValidationError",
-      message: error.message,
-    });
-  }
 
-  try {
-    const newData = request.body;
-    const { uid } = request.auth;
-
-    await Account.findByIdAndUpdate({ _id: uid },newData)
-   const newDataPerson= await Account.findById({ _id: uid })
-    newDataPerson.password = undefined;
-    delete newDataPerson.password;
-   
-    response.status(201).json({
-      message: "Succesfully Register Data Person",
-      data: newDataPerson
-    });
-  } catch (error) {
-    console.error(error);
-    return response.status(500).send({
-      message: "Error Register Data Person"
-    });
-  }
-}
-
-
-
-module.exports = {register,basicData};
+module.exports = { register };

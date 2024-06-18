@@ -13,11 +13,11 @@ import OnlineIndicator from './OnlineIndicator'
 import logo from '@/images/logo_eslogan.png'
 import Image from 'next/image'
 import Link from 'next/link'
-//import AuthModal from './AuthModal'
-//import { useAuth } from '@/AuthContext'
+import AuthModal from '../AuthModal/AuthModal'
+import { useAuth } from '@/contexts/AuthConstext'
 
 export default function Header() {
-  // const { isLoggedIn, account, logout } = useAuth()
+  const {  account, logout } = useAuth()
 
   const [anchorEl, setAnchorEl] = useState(null)
   const [popover, setPopover] = useState(false)
@@ -73,38 +73,34 @@ export default function Header() {
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
         <List style={{ minWidth: '90px' }}>
-
-          <ListSubheader >
-            {/* Hello, {isLoggedIn ? account.username : 'Guest'} */}
-            Hello,
+        <ListSubheader >
+            {/* Hello, {isLoggedIn ? account.username : "Guest"} */}
           </ListSubheader>
-          {/* 
-          {true
-            ? (
-              <Fragment>
-                <ListSubheader >
-                 Rol: {isLoggedIn ? account.role : ''} 
-                </ListSubheader>
-                 <ListItemButton onClick={logout}>Logout</ListItemButton> 
-              </Fragment>
 
-            )
-            : (
-              <Fragment>
-                <ListItemButton onClick={clickLogin}>Login</ListItemButton>
-                <ListItemButton onClick={clickRegister}>Reigster</ListItemButton>
-              </Fragment>
-            )}
-             */}
+          {/* {isLoggedIn ? (
+            <Fragment>
+               <ListSubheader >
+              Rol: {isLoggedIn ? account.role: ""} 
+               </ListSubheader>
+               <ListItemButton onClick={logout}>Logout</ListItemButton> 
+            </Fragment>
+         
+            
+          ) : (
+            <Fragment>
+              <ListItemButton onClick={clickLogin}>Login</ListItemButton>
+              <ListItemButton onClick={clickRegister}>Reigster</ListItemButton>
+            </Fragment>
+          )} */}
         </List>
       </Popover>
 
-      {/* <AuthModal
+     <AuthModal
         open={authModal}
         close={() => setAuthModal(false)}
         isRegisterMode={register}
         toggleRegister={() => setRegister((prev) => !prev)}
-      />*/}
+      />
     </AppBar>
   )
 }

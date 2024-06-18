@@ -1,53 +1,28 @@
 const mongoose = require("mongoose");
 
 const instance = new mongoose.Schema(
-  { 
-
-
-    tipodocumento: {
+  {
+    name: {
       type: String,
-      required: true,
-      
-    },
-    document: {
-      type: String,
-      required: true,
-      min: 6,
-      max: 12,
-    },
-   
-
-    username: {
-      type: String,
-      min: 4,
-      max: 20,
-      required: true,
-      lowercase: true,
-    },
-    
-    lastname: {
-      type: String,
-      min: 4,
-      max: 20,
-      required: true,
-      lowercase: true,
+      default: "",
     },
     email: {
-      type: String, 
+      type: String,
       unique: true,
       required: true,
       max: 50,
-      min: 5,
-      max: 10,
+      min: 8,
     },
     password: {
       type: String,
       required: true,
     },
-    isAdmin: {
-      type: Boolean,
-      default: false,
-    }
+    role: {
+      type: String,
+      required: true,
+      enum: ["usuario","admin"],
+      default: "usuario",
+    },
   },
   {
     timestamps: true,

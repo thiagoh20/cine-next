@@ -4,8 +4,6 @@ import { Badge, Avatar } from '@mui/material'
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
-    backgroundColor: 'black',
-    color: 'black',
     boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
     '&::after': {
       position: 'absolute',
@@ -16,20 +14,20 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
       borderRadius: '50%',
       animation: 'ripple 1.2s infinite ease-in-out',
       border: '1px solid currentColor',
-      content: '""'
-    }
+      content: '""',
+    },
   },
   '@keyframes ripple': {
     '0%': {
       transform: 'scale(.8)',
-      opacity: 1
+      opacity: 1,
     },
     '100%': {
       transform: 'scale(2.4)',
-      opacity: 0
-    }
-  }
-}))
+      opacity: 0,
+    },
+  },
+}));
 
 const OnlineBadge = styled(StyledBadge)(() => ({
   '& .MuiBadge-badge': {

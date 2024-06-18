@@ -1,3 +1,4 @@
+
 const shimmer =
   'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:border-t before:border-rose-100/20 before:bg-gradient-to-r before:from-transparent before:via-slate-500/20 before:to-transparent';
 
