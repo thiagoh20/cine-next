@@ -9,7 +9,7 @@ export default function CardMovie(data) {
     return (
         <Link href={`/detailMovie/${data.data._id}`}>
             <div className="relative p-[1%] justify-center content-center">
-                <Image className="rounded-md transition-transform duration-300 hover:scale-105 object-cover" src={imagenes_URL+data?.data?.imageCartelera}
+                <Image className=" rounded-md transition-transform duration-300 hover:scale-105 object-cover" src={imagenes_URL+data?.data?.imageCartelera}
                     alt={data.data.titulo}
                     width={200}
                     height={100}

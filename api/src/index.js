@@ -12,7 +12,7 @@ async function bootstrap() {
 
   app.get("/", (req, res) => res.status(200).json({ message: "Hello Cinema!" }));
   app.get("/health", (req, res) => res.status(200).send());
-  app.use("/auth", authRoutes);
+  app.use("/auth",   authRoutes);
   app.use("/movies", moviesRouter);
   // app.use("/funtionCine", funtionRouter);
   // app.use("/reservaMovie", RouteReservaMovie);
