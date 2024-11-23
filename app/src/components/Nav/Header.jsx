@@ -14,10 +14,10 @@ import logo from '@/images/logo_eslogan.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import AuthModal from '../AuthModal/AuthModal'
-import { useAuth } from '@/contexts/AuthConstext'
+
 
 export default function Header() {
-  const {  account, logout } = useAuth()
+  // const {  account, logout } = useAuth()
 
   const [anchorEl, setAnchorEl] = useState(null)
   const [popover, setPopover] = useState(false)
