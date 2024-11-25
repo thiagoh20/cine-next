@@ -6,7 +6,7 @@ class MongoDB {
   constructor() {
     this.mongoose = mongoose
     this.isConnected = false
-    this.MONGO_URI = MONGO_URI
+    this.MONGO_URI = MONGO_URI 
     this.MONGO_OPTIONS = MONGO_OPTIONS
   }
 

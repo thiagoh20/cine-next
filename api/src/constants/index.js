@@ -1,8 +1,9 @@
+require('dotenv').config();
+
 const ORIGIN = "*";
 const PORT = process.env.PORT || 8070;
 
-const MONGO_URI =
-  process.env.MONGO_URI || "mongodb+srv://thiago:iOxzHEF7EAtWei2f@clasedb.8fn5zob.mongodb.net/nexus_cine?retryWrites=true&w=majority&appName=ClaseDB";
+const MONGO_URI = process.env.MONGOURI || "";
   
 const MONGO_OPTIONS = {};
 
