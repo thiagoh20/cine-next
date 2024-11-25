@@ -3,7 +3,7 @@ require('dotenv').config();
 const ORIGIN = "*";
 const PORT = process.env.PORT || 8070;
 
-const MONGO_URI = process.env.MONGOURI || "";
+const MONGO_URI = process.env.MONGO_URI || "";
   
 const MONGO_OPTIONS = {};
 
