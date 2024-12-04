@@ -2,7 +2,8 @@
   "name": "cine-next",
   "dependencies": {
     "concurrently": "^8.2.2",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.8.3"
   },
   "scripts": {
     "install": "concurrently \"cd ./api && npm i\" \"cd ./app && npm i\"",
